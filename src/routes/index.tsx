@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Clock, Users, DollarSign, Play, Sparkles, Globe, TrendingUp } from "lucide-react";
+import { ParticleField } from "@/components/ParticleField";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -40,17 +41,9 @@ function Index() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
-      {/* Ambient background — sits BEHIND content, cannot block clicks */}
-      <div aria-hidden className="pointer-events-none fixed inset-0 z-0">
-        <div className="absolute left-1/2 top-[10%] h-[720px] w-[720px] -translate-x-1/2 rounded-full opacity-70"
-             style={{ background: "radial-gradient(circle, oklch(0.45 0.15 265 / 0.35), transparent 65%)" }} />
-        <div className="absolute -left-40 top-1/3 h-[420px] w-[420px] rounded-full opacity-40"
-             style={{ background: "radial-gradient(circle, oklch(0.5 0.14 20 / 0.25), transparent 70%)" }} />
-        <div className="absolute -right-40 top-2/3 h-[520px] w-[520px] rounded-full opacity-40"
-             style={{ background: "radial-gradient(circle, oklch(0.5 0.15 190 / 0.25), transparent 70%)" }} />
-        <div className="absolute inset-0 opacity-[0.04]"
-             style={{ backgroundImage: "linear-gradient(oklch(1 0 0) 1px, transparent 1px), linear-gradient(90deg, oklch(1 0 0) 1px, transparent 1px)", backgroundSize: "56px 56px" }} />
-      </div>
+      {/* Ambient animated background — behind content, no pointer capture */}
+      <ParticleField />
+
 
       {/* NAV */}
       <header className={`fixed inset-x-0 top-4 z-50 flex justify-center px-4 transition-all ${scrolled ? "top-2" : "top-4"}`}>
