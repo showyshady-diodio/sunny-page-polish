@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Clock, Users, DollarSign, Play, Sparkles, Globe, TrendingUp } from "lucide-react";
+import { ParticleField } from "@/components/ParticleField";
 
 export const Route = createFileRoute("/")({
   component: Index,
